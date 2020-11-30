@@ -1,12 +1,13 @@
 package subnumbers;
 import java.math.BigInteger;
+import java.sql.Types;
 
 public class Subnumbers {
 
     public static void main(String[] args) {
         
         
-        int conseNum = 4;
+        int conseNum = 13;
         String numStr = "7316717653133062491922511967442657474"
                 + "23553491949349698352031277450632623957831801"
                 + "69848018694788518438586156078911294949545950"
@@ -35,19 +36,24 @@ public class Subnumbers {
         int lengthArray = digits.length;
         int mult = 1;
         int multMax = Integer.MIN_VALUE;
+        String secTemp = "";
+        String secDef = "";
         //lengthArray;
-        for (int i = 0; i < 1; i++) { // Se prueba inicialmente para el primer caso que es 7*3*1*6 en ganas de comprobar el loop multiplicativo
+        for (int i = 0; i < lengthArray-conseNum; i++) { // Se prueba inicialmente para el primer caso que es 7*3*1*6 en ganas de comprobar el loop multiplicativo
             
             for (int j = i; j < i+conseNum; j++) {
-                //j* j+1 * j+2 * j+3 * j+n //4 veces
               mult = digits[j]*mult;
-                
+              secTemp = secTemp+  String.valueOf(digits[j]);
             }
-            if (mult > multMax) {
+            if (mult >= multMax) {
                 multMax = mult;
+                secDef = secTemp;
             }
+            mult = 1; // Reinicio de datos
+            secTemp = "";
         }
+        System.out.println(multMax);
+        System.out.println("Bajo la secuencia: "+secDef);
         
-        System.out.println(mult);
     }
 }
