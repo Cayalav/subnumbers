@@ -7,7 +7,7 @@ public class Subnumbers {
     public static void main(String[] args) {
         
         
-        int conseNum = 13;
+        int conseNum = 13; //Valor minimo a probar es #Digitos - 1
         String numStr = "7316717653133062491922511967442657474"
                 + "23553491949349698352031277450632623957831801"
                 + "69848018694788518438586156078911294949545950"
